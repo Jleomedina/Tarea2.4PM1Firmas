@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- Add other views as needed -->
+
+    <Button
+        android:id="@+id/btnSaveSignature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Save Signature" />
+
+    <com.example.tarea24pm1firmas.SignatureView
+        android:id="@+id/signatureView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/btnSaveSignature"
+        android:layout_above="@+id/bottomButtonsLayout"
+        android:background="#ffffff"
+        android:layout_marginTop="16dp"/>
+
+    <LinearLayout
+        android:id="@+id/bottomButtonsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp">
+
+        <!-- activity_main.xml -->
+        <Button
+            android:id="@+id/btnViewSignatures"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/signatureView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:text="View Signatures" />
+
+
+
+    </LinearLayout>
+</RelativeLayout>
+
