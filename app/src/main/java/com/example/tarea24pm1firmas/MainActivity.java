@@ -26,29 +26,26 @@ public class MainActivity extends AppCompatActivity {
 
         signatureView = findViewById(R.id.signatureView);
 
-        // Example: Set up a click listener for the "Save Signature" button
+
         findViewById(R.id.btnSaveSignature).setOnClickListener(view -> {
-            // Get the bitmap of the signature
+
             Bitmap signatureBitmap = signatureView.getBitmap();
 
-            // Convert the bitmap to a byte array (for storing in the database)
+
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
             signatureBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
             byte[] byteArray = stream.toByteArray();
 
-            // Example: Save a signature when the button is clicked
+
             Signatures signature = new Signatures("Description Example", byteArray);
             long insertedRowId = dataSource.insertSignature(signature);
 
             if (insertedRowId != -1) {
-                // Signature saved successfully
-                // You can add a Toast or other feedback here
 
-                // Clear the SignatureView after saving
+
                 signatureView.clear();
             } else {
-                // Error saving signature
-                // You can add a Toast or other error handling here
+
             }
         });
 

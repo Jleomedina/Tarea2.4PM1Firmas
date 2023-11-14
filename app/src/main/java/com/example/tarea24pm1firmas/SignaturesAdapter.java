@@ -35,10 +35,8 @@ public class SignaturesAdapter extends RecyclerView.Adapter<SignaturesAdapter.Vi
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Signatures signature = signatureList.get(position);
 
-        // Set description
         holder.tvDescription.setText(signature.getDescription());
 
-        // Set signature image (you need to decode the byte array)
         Bitmap signatureBitmap = BitmapFactory.decodeByteArray(
                 signature.getDigitalSignature(), 0, signature.getDigitalSignature().length
         );

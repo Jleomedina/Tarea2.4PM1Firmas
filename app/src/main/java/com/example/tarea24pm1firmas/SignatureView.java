@@ -82,12 +82,10 @@ public class SignatureView extends View {
         // Reset
     }
 
-    // New method to get the bitmap of the signature
     public Bitmap getBitmap() {
         return mBitmap;
     }
 
-    // Add this method to your SignatureView class
     public void clear() {
         mCanvas.drawColor(0, PorterDuff.Mode.CLEAR);
         invalidate();

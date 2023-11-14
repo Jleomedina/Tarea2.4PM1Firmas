@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- Add other views as needed -->
 
     <Button
         android:id="@+id/btnSaveSignature"
@@ -32,7 +31,6 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="16dp">
 
-        <!-- activity_main.xml -->
         <Button
             android:id="@+id/btnViewSignatures"
             android:layout_width="wrap_content"
@@ -41,9 +39,6 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"
             android:text="View Signatures" />
-
-
-
     </LinearLayout>
 </RelativeLayout>
 

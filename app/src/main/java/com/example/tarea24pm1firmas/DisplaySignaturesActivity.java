@@ -24,10 +24,8 @@ public class DisplaySignaturesActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.signaturesRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Example: Get all saved signatures from the database
         List<Signatures> signatureList = dataSource.getAllSignatures();
 
-        // Set up the RecyclerView adapter
         signaturesAdapter = new SignaturesAdapter(this, signatureList);
         recyclerView.setAdapter(signaturesAdapter);
     }
