@@ -5,8 +5,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
+import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.ByteArrayOutputStream;
@@ -26,35 +25,35 @@ public class MainActivity extends AppCompatActivity {
 
         signatureView = findViewById(R.id.signatureView);
 
-
         findViewById(R.id.btnSaveSignature).setOnClickListener(view -> {
+            // Get the description from the EditText
+            EditText editDescription = findViewById(R.id.editDescription);
+            String description = editDescription.getText().toString();
 
+            // Get the signature from your SignatureView (replace with your actual implementation)
             Bitmap signatureBitmap = signatureView.getBitmap();
-
 
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
             signatureBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
             byte[] byteArray = stream.toByteArray();
 
-
-            Signatures signature = new Signatures("Description Example", byteArray);
+            Signatures signature = new Signatures(description, byteArray);
             long insertedRowId = dataSource.insertSignature(signature);
 
             if (insertedRowId != -1) {
-
-
+                // Signature saved successfully, clear the signature view
                 signatureView.clear();
+                // Optionally, you can also clear the description
+                editDescription.setText("");
             } else {
-
+                // Handle the case when saving the signature fails
             }
         });
-
 
         findViewById(R.id.btnViewSignatures).setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, DisplaySignaturesActivity.class);
             startActivity(intent);
         });
-
     }
 
     @Override
@@ -63,5 +62,6 @@ public class MainActivity extends AppCompatActivity {
         dataSource.close();
     }
 }
+
 
 
